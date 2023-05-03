@@ -30,6 +30,8 @@
     <title>{{ with .Title }}{{ . }}{{ else }}{{ .Site.Title }}{{ end }}</title>
 
     <link rel="icon" href="{{ with .Site.Params.favicon }}{{ . | absURL }}{{ else }}/favicon.png{{ end }}">
+    <link rel="apple-touch-icon" href="{{ with .Site.Params.favicon }}{{ . | absURL }}{{ else }}/favicon.png{{ end }}">
+    <link rel="safari_pinned_tab" href="{{ with .Site.Params.favicon }}{{ . | absURL }}{{ else }}/favicon.png{{ end }}">
     {{ with .OutputFormats.Get "RSS" }}
       <link rel="alternate" type="application/rss+xml" title="RSS" href="{{ .RelPermalink }}">
     {{ end }}
@@ -48,7 +50,7 @@
     {{ end }}
     <!--EXTERNAL STYLES END-->
     <!--STYLES-->
-    <link rel="stylesheet" href="{{ "css/style-h6ccsoet3mzkbb0wngshlfbaweimexgqcxj0h5hu4h82olsdzz6wmqdkajm.min.css" | absURL }}" />
+    <link rel="stylesheet" href="{{ "css/style-c15f9dbce95111ed96856c96cfde1fd911c88340e95211ed94146c96cfde1fd9.min.css" | absURL }}" />
     <!--STYLES END-->
     {{ range .Site.Params.customCSS }}
       {{ if isset . "href" }}

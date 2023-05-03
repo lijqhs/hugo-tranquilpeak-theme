@@ -6,9 +6,15 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/prism.min.js" integrity="sha512-axJX7DJduStuBB8ePC8ryGzacZPr3rdLaIDZitiEgWWk2gsXxEFlm4UW0iNzj2h3wp5mOylgHAzBzM4nRSvTZA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 {{ end }}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha512-uURl+ZXMBrF4AwGaWmEetzrd+J5/8NRkWAvJx5sbPSSuOb0bZLqf+tOzniObO00BjHa/dD7gub9oCGMLPQHtQA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+{{ if (.Params.mermaid) }}
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js" crossorigin="anonymous"></script>
+  <script>
+    mermaid.initialize({ theme: 'dark', startOnLoad: true });
+  </script>
+{{ end }}
 <!--EXTERNAL SCRIPTS END-->
 <!--SCRIPTS-->
-<script src="{{ "/js/script-yqzy9wdlzix4lbbwdnzvwx3egsne77earqmn73v9uno8aupuph8wfguccut.min.js" | absURL }}"></script>
+<script src="{{ "/js/script-5b445f02e95311ed96856c96cfde1fd94e6226e8e95311ed94146c96cfde1fd9.min.js" | absURL }}"></script>
 <!--SCRIPTS END-->
 {{ range .Site.Params.customJS }}
   {{ if isset . "src" }}
@@ -30,7 +36,7 @@ $(document).ready(function() {
 });
 </script>
 {{ end }}
-{{ if or .Params.math .Site.Params.math }}
+<!-- {{ if or .Params.math .Site.Params.math }}
   <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS_CHTML-full" integrity="sha256-GhM+5JHb6QUzOQPXSJLEWP7R73CbkisjzK5Eyij4U9w=" crossorigin="anonymous"></script>
   <script type="text/x-mathjax-config">
     MathJax.Hub.Config({
@@ -39,7 +45,10 @@ $(document).ready(function() {
       messageStyle: 'none'
     });
   </script>
-{{ end }}
+{{ end }} -->
+
+{{ if or .Params.math .Site.Params.math }}{{ partial "katex.html" . }}{{ end }}
+
 {{ with .Site.Params.algolia }}
   {{ if (isset . "appId") | and (isset . "apiKey") | and (isset . "indexName") }}
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.19.1/moment-with-locales.min.js" integrity="sha256-TbOIe++NbC9P3KTtUMJ5wcROlBdnRqrPleLdpPg3xxE=" crossorigin="anonymous"></script>
