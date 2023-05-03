@@ -2635,12 +2635,16 @@ figure.highlight pre {
     cursor: text
 }
 
-.theme--light .codeblock {
+.theme--light .codeblock,
+.theme--light .codeblock .gutter,
+.theme--light .codeblock figcaption {
     background-color: #f7f8f8;
     color: #5d686f
 }
 
-.theme--dark .codeblock {
+.theme--dark .codeblock,
+.theme--dark .codeblock .gutter,
+.theme--dark .codeblock figcaption {
     background-color: #333;
     color: #e8e6e3
 }
